@@ -1,0 +1,110 @@
+@import "~sass/utils/index";
+
+.container {
+
+}
+
+.title {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.steps {
+  max-width: 400px;
+  margin: auto;
+}
+
+.numbers {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.number {
+  align-items: center;
+  background-color: $grey-light;
+  border-radius: 60px;
+  display: flex;
+  justify-content: center;
+  height: 60px;
+  width: 60px;
+  font-size: 22px;
+  font-weight: 600;
+
+  &.is-active {
+    background-color: $pink-light;
+  }
+
+  @include desktop {
+    height: 75px;
+    width: 75px;
+    font-size: 25px;
+  }
+}
+
+.content {
+  border: 1px solid $grey;
+  box-shadow: 1px 1px 3px $grey-light;
+  max-width: 400px;
+  margin: auto;
+  margin-top: 20px;
+  padding: 20px;
+
+  @include desktop {
+    padding: 30px;
+  }
+}
+
+.subtitle {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.label {
+  display: block;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.input {
+  border: none;
+  border-bottom: 1px solid $grey;
+  font-size: 16px;
+  padding: 5px;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.label-radio {
+  font-size: 15px;
+  margin-left: 5px;
+  vertical-align: baseline;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.canva {
+  border: 1px solid $grey;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
