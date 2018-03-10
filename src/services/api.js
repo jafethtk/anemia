@@ -9,7 +9,7 @@ class apiService {
     const response = await fetch(url, {
       method: 'post',
       headers: {
-        'Content-Type': 'multipart/form-data',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(diagnosis),
     });

@@ -7,6 +7,7 @@ import './styles.scssm';
 const OptionsSection = () => (
   <div styleName="container">
     <div className="helper-wrapper">
+      <h1 styleName="title">¿Qué deseas realizar?</h1>
       <div styleName="options">
         <Link to="/diagnostico" styleName="option-wrapper">
           <div styleName="option">

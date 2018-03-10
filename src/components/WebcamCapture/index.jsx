@@ -17,14 +17,13 @@ class WebcamCapture extends PureComponent {
     const input = document.getElementById('image');
 
     if (input.files && input.files[0]) {
-      this.setState({ fileInput: input.files[0] }, () => {
-        const reader = new FileReader();
+      const reader = new FileReader();
 
-        reader.onload = (e) => {
-          document.getElementById('preview').src = e.target.result;
-        }
-        reader.readAsDataURL(input.files[0]);
-      });
+      reader.onload = (e) => {
+        document.getElementById('preview').src = e.target.result;
+        this.setState({ fileInput: e.target.result });
+      }
+      reader.readAsDataURL(input.files[0]);
     }
   };
 
@@ -42,7 +41,7 @@ class WebcamCapture extends PureComponent {
         <input type="file" accept="image/*" multiple capture="camera" styleName="hidden-input" id="image" onChange={this.onChangeValue}/>
         <div styleName="canva">
           <img src={cameraIcon} alt="Tomar foto" styleName="icon" />
-          {fileInput && <img id="preview" src="#" styleName="preview" />}
+          <img id="preview" src="#" styleName="preview" />
         </div>
         <div onClick={this.clickFileInput} styleName="button">
           TOMAR FOTO
