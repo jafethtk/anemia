@@ -7,8 +7,9 @@ const Button = ({
   text,
   onClick,
   type,
+  disabled
 }) => (
-  <button styleName={`${type}-button`} onClick={onClick}>
+  <button styleName={`${type}-button`} onClick={onClick} disabled={disabled}>
     {text}
   </button>
 );
@@ -17,6 +18,7 @@ Button.defaultProps = {
   text: null,
   onClick: null,
   type: 'primary',
+  disabled: false
 };
 
 export default Button;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Modal from 'components/Modal';
 import './styles.scssm';
+import Button from 'components/Button';
 
 class DiagnosisModal extends Component {
   state = {
@@ -58,8 +59,8 @@ class DiagnosisModal extends Component {
       case 'Registrado':
         form = (
           <div>
-            <label htmlFor="deliveryDate">Fecha de Entrega</label>
-            <input type="date" name="deliveryDate" onChange={this.handleInputChange} />
+            <label htmlFor="deliveryDate" styleName="diagnosis-modal-field">Fecha de Entrega</label>
+            <input type="date" name="deliveryDate" onChange={this.handleInputChange} styleName="date-input"/>
           </div>
         );
         break;
@@ -67,15 +68,10 @@ class DiagnosisModal extends Component {
       case 'En Proceso':
         form = (
           <div>
-            <div>¿Entregado?</div>
+            <div styleName="diagnosis-modal-field">Estado</div>
             <div>
-              <label htmlFor="delivered">Si</label>
-              <input type="radio" name="delivered" value="true" onChange={this.handleInputChange} />
-            </div>
-
-            <div>
-              <label htmlFor="delivered">No</label>
-              <input type="radio" name="delivered" value="false" onChange={this.handleInputChange} />
+              <label htmlFor="delivered">Entregado</label>
+              <input type="checkbox" name="delivered" value="true" onChange={this.handleInputChange} style={{marginLeft: 10}}/>
             </div>
           </div>
         );
@@ -90,35 +86,28 @@ class DiagnosisModal extends Component {
     return (
       <Modal active={active} handleClose={handleClose}>
         <div className="box">
-          <div styleName="container">
-            <div className="helper-wrapper">
-              <h1 styleName="title">Detalle</h1>
+          <h1 styleName="title">Detalle</h1>
+          <div>
+            <div><span styleName="diagnosis-modal-field">DNI:</span> {patient.dni}</div>
+            <div><span styleName="diagnosis-modal-field">Edad:</span> {patient.age}</div>
+            <div><span styleName="diagnosis-modal-field">Sexo:</span> {patient.sex}</div>
+          </div>
 
-              <div styleName="content">
-                  <h2>Detalle</h2>
-                  <div>
-                    <div>DNI: {patient.dni}</div>
-                    <div>Edad: {patient.age}</div>
-                    <div>Sexo: {patient.sex}</div>
-                  </div>
-
-                  <div>
-                    <h3>Suplementos</h3>
-                    <div>
-                      {patient.supplement}
-                    </div>
-                  </div>
-
-                  {form}
-
-                  <div>
-                    <button onClick={this.handleSubmit}>Aplicar</button>
-                  </div>
-              </div>
+          <div>
+            <h2 styleName="diagnosis-modal-field">Suplementos:</h2>
+            <div styleName="diagnosis-modal-supplement-box">
+              {diagnosis.supplement}
             </div>
           </div>
+
+          <div styleName="diagnosis-modal-form-box">
+            {form}
+          </div>
+
+          <div styleName="diagnosis-modal-button-box">
+            <Button text="Aplicar" onClick={this.handleSubmit} disabled={diagnosis.order.status === 'Registrado' && !this.state.form.values.deliveryDate}/>
+          </div>
         </div>
-        
       </Modal>
     );
   }
