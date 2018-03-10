@@ -34,7 +34,8 @@
   font-weight: 600;
 
   &.is-active {
-    background-color: $pink-light;
+    background-color: $pink;
+    color: $white;
   }
 
   @include desktop {
@@ -51,10 +52,35 @@
   margin: auto;
   margin-top: 20px;
   padding: 20px;
+  position: relative;
 
   @include desktop {
     padding: 30px;
   }
+}
+
+.loader {
+  background: rgba(255, 255, 255, 0.80);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  &.is-active {
+    display: block;
+  }
+}
+
+.gif {
+  height: 70px;
+  width: 70px;
+  top: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .subtitle {
@@ -97,14 +123,4 @@
   display: flex;
   justify-content: space-around;
   margin-top: 10px;
-}
-
-.canva {
-  border: 1px solid $grey;
-  height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 15px;
-  cursor: pointer;
 }

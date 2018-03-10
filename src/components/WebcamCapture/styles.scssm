@@ -1,0 +1,55 @@
+@import "~sass/utils/index";
+
+.capture {
+  position: relative;
+}
+
+.canva {
+  border: 1px solid $grey;
+  border-bottom: none;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  @include desktop {
+    height: 300px;
+  }
+}
+
+.hidden-input {
+  visibility: hidden;
+  position: absolute;
+  width: 100%;
+}
+
+.button {
+  width: 100%;
+  background-color: $pink;
+  height: 40px;
+  color: $white;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  width: 50px;
+  height: auto;
+}
+
+.preview {
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  max-height: none;
+}
