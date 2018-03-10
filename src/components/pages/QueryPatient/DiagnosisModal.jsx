@@ -13,7 +13,7 @@ class DiagnosisModal extends Component {
         const { form } = this.state;
         let formValues;
 
-        switch(diagnosis.status){
+        switch(diagnosis.order.status){
             case 'Registrado':
                 formValues = {
                     deliveryDate: form.values.deliveryDate
@@ -53,12 +53,12 @@ class DiagnosisModal extends Component {
         const { patient, diagnosis, active, handleClose } = this.props;
         let form;
 
-        switch(diagnosis.status){
+        switch(diagnosis.order.status){
             case 'Registrado':
                 form = (
                     <div>
                         <label htmlFor="deliveryDate">Fecha de Entrega</label>
-                        <input type="date" name="deliveryDate"  onChange={this.handleInputChange}/>
+                        <input type="date" name="deliveryDate" onChange={this.handleInputChange}/>
                     </div>
                 );
                 break;
@@ -99,7 +99,7 @@ class DiagnosisModal extends Component {
                     <div>
                         <h3>Suplementos</h3>
                         <div>
-                            {patient.supplements}
+                            {patient.supplement}
                         </div>
                     </div>
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DiagnosisTable from './DiagnosisTable';
 import DiagnosisModal from './DiagnosisModal';
+import './styles.scssm';
 
 class PatientProfile extends Component {
     state = {
@@ -32,14 +33,14 @@ class PatientProfile extends Component {
 
         return (
             <div>
-                <div>
+                <div styleName="patient-profile-info ">
                     <div>Edad: {patient.age}</div>
                     <div>Sexo: {patient.sex}</div>
                 </div>
-                <DiagnosisTable diagnosisHistory={patient.diagnosisHistory} onSeeMoreClick={this.openModal}/>
+                <DiagnosisTable diagnosisHistory={patient.results} onSeeMoreClick={this.openModal}/>
                 {diagnosisModalOpen && <DiagnosisModal 
                     onSubmit={this.handleSubmit} 
-                    diagnosis={currentDiagnosis} 
+                    diagnosis={currentDiagnosis}
                     patient={patient} 
                     active={diagnosisModalOpen} 
                     handleClose={this.closeModal}/>}
