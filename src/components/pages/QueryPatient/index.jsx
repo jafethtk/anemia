@@ -39,11 +39,6 @@ class QueryPatient extends Component {
     searchDone: false
   }
 
-  componentDidMount(){
-
-  }
-
-
   searchPatient = () => {
     const { form } = this.state;
     console.log('Search patient with dni: ', form.values);
