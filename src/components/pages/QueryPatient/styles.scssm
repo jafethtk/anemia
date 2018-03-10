@@ -1,0 +1,96 @@
+@import "~sass/utils/index";
+
+.container {
+
+}
+
+.title {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.content {
+  border: 1px solid $grey;
+  box-shadow: 1px 1px 3px $grey-light;
+  max-width: 400px;
+  margin: auto;
+  margin-top: 20px;
+  padding: 20px;
+
+  @include desktop {
+    padding: 30px;
+  }
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.label {
+  display: block;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.input {
+  border: none;
+  border-bottom: 1px solid $grey;
+  font-size: 16px;
+  padding: 5px;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.patient-profile-info {
+  margin: 10px;
+}
+
+.patient-results-table{
+  width: 100%;
+}
+
+.patient-results-cell{
+  text-align: center;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+.diagnosis-modal-field{
+  font-weight: bold;
+}
+
+.diagnosis-modal-supplement-box{
+  border: 1px solid black;
+  border-radius: 3.5px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.diagnosis-modal-form-box{
+  padding: 10px;
+  margin: 10px;
+}
+
+.diagnosis-modal-button-box{
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+.date-input{
+  margin: 10px;
+}
+
+.search-patient-btn-box{
+  padding: 10px;
+  margin: 10px 10px 0 10px;
+  text-align: center;
+}
