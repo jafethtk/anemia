@@ -45,7 +45,7 @@ class QueryPatient extends Component {
 
     let patient;
 
-    fetch(`http://1bf56fa8.ngrok.io/api/user/get/${form.values.dni}`)
+    fetch(`${process.env.REACT_APP_API_URL}/user/get/${form.values.dni}`)
     .then(response => response.json())
     .then(data => patient = data[0])
     .catch(err => console.log('Fetch Error', err))
