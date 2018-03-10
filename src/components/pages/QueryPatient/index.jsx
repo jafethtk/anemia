@@ -45,7 +45,7 @@ class QueryPatient extends Component {
 
     let patient;
 
-    fetch(`http://192.168.2.101:8080/api/user/get/${form.values.dni}`)
+    fetch(`http://1bf56fa8.ngrok.io/api/user/get/${form.values.dni}`)
     .then(response => response.json())
     .then(data => patient = data[0])
     .catch(err => console.log('Fetch Error', err))
@@ -91,7 +91,9 @@ class QueryPatient extends Component {
                 <input name="dni" type="text" onChange={this.handleInputChange} styleName="input" maxLength="8"/>
               </div>
 
+              <div styleName="search-patient-btn-box">
               <Button text="Buscar" onClick={this.searchPatient}/>
+              </div>
 
               {searchDone && (searchResult ? <PatientProfile patient={searchResult}/> : <div>Ningun resultado</div>)}
             </div>

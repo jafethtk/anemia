@@ -62,3 +62,35 @@
 table, th, td {
   border: 1px solid black;
 }
+
+.diagnosis-modal-field{
+  font-weight: bold;
+}
+
+.diagnosis-modal-supplement-box{
+  border: 1px solid black;
+  border-radius: 3.5px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.diagnosis-modal-form-box{
+  padding: 10px;
+  margin: 10px;
+}
+
+.diagnosis-modal-button-box{
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+.date-input{
+  margin: 10px;
+}
+
+.search-patient-btn-box{
+  padding: 10px;
+  margin: 10px 10px 0 10px;
+  text-align: center;
+}

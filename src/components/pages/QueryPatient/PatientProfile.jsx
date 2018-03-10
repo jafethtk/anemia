@@ -29,13 +29,22 @@ class PatientProfile extends Component {
     const { patient } = this.props;
 
     if(currentDiagnosis.order.status != 'Entregado'){
-      fetch('http://192.168.2.101:8080/api/user', {
+      /* fetch('http://1bf56fa8.ngrok.io/api/user', {
         body: JSON.stringify({...values, dni: patient.dni, result_id: currentDiagnosis._id}),
         method: 'POST'
-      }).then(this.closeModal);
-    }else{
-      this.closeModal();
+      }).then(this.closeModal); */
+      if(currentDiagnosis.order.status === 'En Proceso' && values.delivered){
+        currentDiagnosis.order.status = 'Entregado';
+        console.log('delivered!')
+      }
+
+      if(currentDiagnosis.order.status === 'Registrado'){
+        console.log('deliver date!', values.deliveryDate)
+        currentDiagnosis.order.status = 'En Proceso';
+      }
+
     }
+    this.closeModal();
   }
 
   render() {
