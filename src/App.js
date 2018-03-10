@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import Layout from 'components/Layout';
 import Landing from 'components/pages/Landing';
+import QueryPatient from 'components/pages/QueryPatient';
 import './App.scssm';
 
 const title = 'Anemiapp';
@@ -26,7 +27,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Landing} />
         <Route path="/diagnostico" component={Landing} />
-        <Route path="/consulta-paciente" component={Landing} />
+        <Route path="/consulta-paciente" component={QueryPatient} />
         <Redirect to="/" />
       </Switch>
     </Layout>
