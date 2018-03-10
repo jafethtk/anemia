@@ -28,6 +28,8 @@ class apiService {
       throw new Error(`There was an error in the response ${data.Error}`);
     }
 
+    console.log(data);
+
     return data;
   }
 }

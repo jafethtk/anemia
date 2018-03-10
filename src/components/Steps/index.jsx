@@ -167,23 +167,28 @@ class Steps extends PureComponent {
                 {
                   results &&
                   <div>
-                    <div>DNI: {dniValue}</div>
-                    <div>Edad: {ageValue}</div>
-                    <div>Sexo: {sexValue === 'M' ? 'Masculino' : 'Femenino'}</div>
-                    <div>Tipo de anemia: <span>{results.type}</span></div>
+                    <div><span style={{fontWeight: '600', marginRight: '10px'}}>DNI:</span> {dniValue}</div>
+                    <div><span style={{fontWeight: '600', marginRight: '10px'}}>Edad:</span> {ageValue}</div>
+                    <div><span style={{fontWeight: '600', marginRight: '10px'}}>Sexo:</span> {sexValue === 'M' ? 'Masculino' : 'Femenino'}</div>
+                    <div style={{textAlign: 'center', fontWeight: '600', fontSize: '18px', marginTop: '15px'}}>
+                      Tipo de anemia: <span>{results.type}</span>
+                    </div>
                     <div>
-                      <div>Dieta</div>
-                      <ul>
-                        <li><strong>Alimentos ricos en Hierro:</strong> {results.diet.foodIron}</li>
-                        <li><strong>Alimentos ricos en Ácido Fólico:</strong> {results.diet.foodAcidFolic}</li>
-                        <li><strong>Alimentos ricos en Vitamina B12:</strong> {results.diet.foodVitamins}</li>
+                      <div style={{margin: '10px 0', fontWeight: '600'}}>Dieta</div>
+                      <ul style={{listStyle: 'dot', paddingLeft: '20px'}}>
+                        <li><span>Alimentos ricos en Hierro:</span> {results.diet.foodIron}</li>
+                        <li><span>Alimentos ricos en Ácido Fólico:</span> {results.diet.foodAcidFolic}</li>
+                        <li><span>Alimentos ricos en Vitamina B12:</span> {results.diet.foodVitamins}</li>
                       </ul>
                     </div>
                     <div>
-                      <div>Sugerencias</div>
-                      <ul>
-                        <li>{results.order.supplement}</li>
+                      <div style={{margin: '10px 0', fontWeight: '600'}}>Sugerencias</div>
+                      <ul style={{listStyle: 'dot', paddingLeft: '20px'}}>
+                        <li>{results.supplement}</li>
                       </ul>
+                    </div>
+                    <div style={{marginTop: '10px', padding: '20px', background: '#FDE9EA'}}>
+                      Llama al <span style={{fontWeight: '600', fontSize: '18px'}}>0808-10828</span> para recoger tus suplementos gratis
                     </div>
                   </div>
                 }
