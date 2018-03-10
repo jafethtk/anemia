@@ -14,6 +14,7 @@ class Steps extends PureComponent {
     ageValue: '',
     sexValue: '',
     isLoaderOpened: false,
+    results: null,
   };
 
   goToStepTwo = () => {
@@ -44,7 +45,7 @@ class Steps extends PureComponent {
       dni: dniValue,
       age: ageValue,
       sex: sexValue,
-      eyeImage: this.camera.getImage(),
+      eyeImage: null,// this.camera.getImage(),
     };
 
     this.submitDiagnosis(diagnosis);
@@ -54,9 +55,11 @@ class Steps extends PureComponent {
     this.setState({ isLoaderOpened: true });
     try {
       const response = await apiService.setDiagnosis(diagnosis);
-      this.setState({ isLoaderOpened: false });
-      console.log(response);
-      this.setState({ currentStep: 3 });
+      this.setState({
+        isLoaderOpened: false,
+        results: response.results[0],
+        currentStep: 3,
+      });
     } catch(error) {
       console.log(error);
     }
@@ -69,6 +72,7 @@ class Steps extends PureComponent {
       ageValue,
       sexValue,
       isLoaderOpened,
+      results,
     } = this.state;
 
     const className = isLoaderOpened ? 'is-active' : '';
@@ -148,7 +152,7 @@ class Steps extends PureComponent {
             {
               currentStep === 2 &&
               <div>
-                <h2 styleName="subtitle">Sube una foto</h2>
+                <h2 styleName="subtitle">Subir una foto</h2>
                 <WebcamCapture ref={(camera) => { this.camera = camera; }}/>
                 <div styleName="buttons">
                   <Button text="Regresar" type="secondary" onClick={() => { this.setState({ currentStep: 1 }) }}/>
@@ -158,7 +162,38 @@ class Steps extends PureComponent {
             }
             {
               currentStep === 3 &&
-              <div></div>
+              <div>
+                <h2 styleName="subtitle">Resultados de Diagnóstico</h2>
+                {
+                  results &&
+                  <div>
+                    <div>DNI: {dniValue}</div>
+                    <div>Edad: {ageValue}</div>
+                    <div>Sexo: {sexValue === 'M' ? 'Masculino' : 'Femenino'}</div>
+                    <div>Tipo de anemia: <span>{results.type}</span></div>
+                    <div>
+                      <div>Dieta</div>
+                      <ul>
+                        <li><strong>Alimentos ricos en Hierro:</strong> {results.diet.foodIron}</li>
+                        <li><strong>Alimentos ricos en Ácido Fólico:</strong> {results.diet.foodAcidFolic}</li>
+                        <li><strong>Alimentos ricos en Vitamina B12:</strong> {results.diet.foodVitamins}</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <div>Sugerencias</div>
+                      <ul>
+                        <li>{results.order.supplement}</li>
+                      </ul>
+                    </div>
+                  </div>
+                }
+                <div styleName="buttons">
+                  <Button text="Regresar" type="secondary" onClick={() => { this.setState({ currentStep: 2 }) }}/>
+                  <Link to="/dashboard">
+                    <Button text="Volver Inicio" type="primary" onClick={() => {}}/>
+                  </Link>
+                </div>
+              </div>
             }
           </div>
         </div>
