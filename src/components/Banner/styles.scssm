@@ -1,0 +1,19 @@
+@import "~sass/utils/index";
+
+.container {
+  background: $pink;
+}
+
+.logo-link {
+  display: flex;
+  max-width: 150px;
+
+  @include desktop {
+    max-width: 200px;
+  }
+}
+
+.logo {
+  height: 100%;
+  width: 100%;
+}

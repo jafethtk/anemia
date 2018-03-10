@@ -9,6 +9,8 @@ import {
 import Layout from 'components/Layout';
 import Landing from 'components/pages/Landing';
 import QueryPatient from 'components/pages/QueryPatient';
+import Home from 'components/pages/Home';
+import Diagnosis from 'components/pages/Diagnosis';
 import './App.scssm';
 
 const title = 'Anemiapp';
@@ -26,7 +28,8 @@ const App = () => (
 
       <Switch>
         <Route exact path="/" component={Landing} />
-        <Route path="/diagnostico" component={Landing} />
+        <Route path="/dashboard" component={Home} />
+        <Route path="/diagnostico" component={Diagnosis} />
         <Route path="/consulta-paciente" component={QueryPatient} />
         <Redirect to="/" />
       </Switch>

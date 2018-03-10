@@ -1,0 +1,58 @@
+@import "~sass/utils/index";
+
+.container {
+  background: $white;
+}
+
+.options {
+  width: 100%;
+
+  @include desktop {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.option-wrapper {
+  color: $grey;
+  margin-bottom: 20px;
+  margin-right: 40px;
+  max-width: 300px;
+  width: 100%;
+
+  &:last-child {
+    margin-bottom: 0;
+    margin-right: 0;
+  }
+}
+
+.option {
+  box-shadow: 1px 1px 5px $grey-lighter;
+  background-color: $pink-light;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  margin: auto;
+  max-width: 300px;
+  position: relative;
+  width: 100%;
+
+  @include desktop {
+    height: 300px;
+  }
+}
+
+.icon-wrapper {
+  width: 70px;
+}
+
+.icon {}
+
+.text {
+  bottom: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  position: absolute;
+  text-align: center;
+}

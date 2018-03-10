@@ -1,0 +1,21 @@
+@import "~sass/utils/index";
+
+.primary-button {
+  background-color: $pink;
+  border: 1px solid $pink;
+  border-radius: 50px;
+  color: $white;
+  padding: 10px;
+  max-width: 110px;
+  width: 100%;
+}
+
+.secondary-button {
+  background-color: $white;
+  border: 1px solid $grey;
+  border-radius: 50px;
+  color: $dark;
+  padding: 10px;
+  max-width: 110px;
+  width: 100%;
+}

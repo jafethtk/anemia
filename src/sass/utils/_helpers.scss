@@ -1,0 +1,10 @@
+.helper-wrapper {
+  margin: auto;
+  max-width: 450px;
+  padding: 20px;
+
+  @include desktop {
+    max-width: 920px;
+    padding: 40px;
+  }
+}
