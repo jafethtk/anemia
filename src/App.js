@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import Layout from 'components/Layout';
 import Landing from 'components/pages/Landing';
+import QueryPatient from 'components/pages/QueryPatient';
 import Home from 'components/pages/Home';
 import Diagnosis from 'components/pages/Diagnosis';
 import './App.scssm';
@@ -29,7 +30,7 @@ const App = () => (
         <Route exact path="/" component={Landing} />
         <Route path="/dashboard" component={Home} />
         <Route path="/diagnostico" component={Diagnosis} />
-        <Route path="/consulta-paciente" component={Landing} />
+        <Route path="/consulta-paciente" component={QueryPatient} />
         <Redirect to="/" />
       </Switch>
     </Layout>
